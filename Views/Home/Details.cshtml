@@ -1,0 +1,26 @@
+﻿@model Shop.Models.ProductView
+
+@{
+    ViewData["Title"] = "Chi tiet san pham";
+    var models = (List<ProductView>)ViewBag.products;
+}
+@if(Model != null)
+{
+    <div class = "test">
+        <p>Chi tiet san pham</p>
+        <p>@Model.ProductName</p>
+        <p>@Model.Price</p>
+    </div>
+}
+else
+{
+    <div class = "test">
+        Not Found !!!
+    </div>
+}
+
+<div class="test">
+    <p>Danh sach san pham tuong tu</p>
+    @* @Html.Partial("DanhSachSanPham", models) *@
+</div>
+

@@ -1,0 +1,23 @@
+$white_color: white;
+$main_color: rgb(245,64,45);
+$text_color: #333;
+$navbar_height: 34px;
+$header_height: 120px;
+
+.button
+{
+    background-color: $white_color;
+    color: rgb(85, 85, 85);
+    border-radius: 4px;
+    font-size: 14rem;
+    cursor: pointer;
+    user-select: none;
+}
+.button--active
+{
+    background-color: #fb5533;
+    color: $white_color;
+    border-radius: 4px;
+    font-size: 14rem;
+    cursor: pointer;
+}

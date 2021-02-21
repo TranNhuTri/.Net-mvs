@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Danh sach san pham";
+}
+@model List<ProductView>
+@{
+    string priceFormat(double Price)
+    {
+        int price = (int)Price;
+        string ans = "";
+        int d = 0;
+        while(price != 0)
+        {
+            if(d % 3 == 0)
+                ans = "." + ans;
+            ans = (char)(price % 10 + 48) + ans;
+            price /= 10;
+            d ++;
+        }
+        return ans + "đ";
+    }
+}
+@for(int i = 0; i < Model.Count; i += 5)
+{
+    <div class="grid_row">
+        @{
+            int j = i;
+        }
+        @while(j < i + 5 && j < Model.Count)
+        {
+            <div class="grid_column-10-2">
+                <div class="product_item">
+                    <div class="product_img" style="background-image: url(@Model[j].ImgLink);"></div>
+                    <h3>@Model[j].Describe</h3>
+                    <div class="product_cost">
+                        <span class="old_cost">9.000.000đ</span>
+                        <span class="new_cost">@priceFormat(@Model[j].Price)</span>
+                    </div>
+                    <div class="product_action">
+                        <i class="far fa-heart"></i>
+                        <div class="product_rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product_origin">
+                        @Model[j].Origin
+                    </div>
+                    <div class="product_favorite_label">
+                        Yêu thích +
+                    </div>
+                    <div class="product_sale_label">
+                        <p>50%</p>
+                        <h4>GIẢM</h4>
+                    </div>
+                </div>
+            </div>
+            j++;
+        }
+    </div>
+}
